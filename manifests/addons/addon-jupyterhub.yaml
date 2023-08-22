@@ -1,0 +1,48 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: jupyterhub
+spec:
+  clusterSelector:
+    matchLabels:
+      jupyterhubChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts/stable
+  chartName: jupyterhub
+  namespace: jupyterhub
+  valuesTemplate: |
+    hub:
+      networkPolicy:
+        interNamespaceAccessLabels: accept
+    proxy:
+      secretToken: 2a454a47ad547ac9549cd462e08289d3a6d5a5d39498339be6016fde522cb713
+      service:
+        type: NodePort
+        nodePorts:
+          http: 32560
+          https: 32561
+    ingress:
+      enabled: false
+    singleuser:
+      cpu:
+        limit: 1
+        guarantee: 0.5
+      memory:
+        limit: 2G
+        guarantee: 1G
+      serviceAccountName: spark
+      startTimeout: 600
+      defaultUrl: "/lab"
+      cloudMetadata:
+        blockWithIptables: false
+      storage:
+        homeMountPath: /home/{username}
+      image:
+        name: jupyter/pyspark-notebook
+        tag: latest
+        pullPolicy: IfNotPresent
+        pullSecrets: []
+      cmd: ["/usr/local/bin/start-singleuser.sh"]
+    cull:
+      enabled: false
+    debug:
+      enabled: true

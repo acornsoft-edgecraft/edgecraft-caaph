@@ -1,0 +1,15 @@
+global:
+  edition: ce
+hosts:
+  domain: edgecraft.acornsoft.io
+ingress:
+  configureCertmanager: false
+  class: nginx
+  tls:
+    enabled: true
+certmanager-issuer:
+  email: ccambo@acornsoft.io
+certmanager:
+  install: false
+nginx-ingress:
+  enabled: false

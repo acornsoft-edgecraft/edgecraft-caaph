@@ -1,0 +1,54 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: velero
+spec:
+  clusterSelector:
+    matchLabels:
+      veleroChart: enabled
+  #repoURL: https://vmware-tanzu.github.io/helm-charts
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts/stable
+  chartName: velero
+  namespace: velero
+  valuesTemplate: |
+    image:
+      repository: velero/velero
+      tag: v1.11.0
+      pullPolicy: IfNotPresent
+      imagePullSecrets: []
+    initContainers:
+      - name: velero-velero-plugin-for-aws
+        image: velero/velero-plugin-for-aws:v1.6.1
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: /target
+            name: plugins
+    configuration:
+      backupStorageLocation:
+        - name: default
+          provider: aws
+          bucket: velero
+          # minio public key (base64 encoded)
+          caCert: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUIrekNDQWFDZ0F3SUJBZ0lSQU5ySllTRHZ4Yy9Ic0NlTXVTaGpKdm93Q2dZSUtvWkl6ajBFQXdJd1BURWMKTUJvR0ExVUVDaE1UUTJWeWRHZGxiaUJFWlhabGJHOXdiV1Z1ZERFZE1Cc0dBMVVFQ3d3VWNtOXZkRUJsWkdkbApZM0poWm5RdGJXbHVhVzh3SGhjTk1qTXdPREl4TURrMU9ERTVXaGNOTWpRd09ESXdNRGsxT0RFNVdqQTlNUnd3CkdnWURWUVFLRXhORFpYSjBaMlZ1SUVSbGRtVnNiM0J0Wlc1ME1SMHdHd1lEVlFRTERCUnliMjkwUUdWa1oyVmoKY21GbWRDMXRhVzVwYnpCWk1CTUdCeXFHU000OUFnRUdDQ3FHU000OUF3RUhBMElBQks0VFluRUxsb08wRnM2TwpSWHdLUkw1QzdCSmRVVk9jZUtZdVhtRmVKVWJ5a1d1RU5JSm9JZXlpVHY3anNtSGh2U3VQRG1zdWpHTlJ2YXUxCjlvYm9tVitqZ1lBd2ZqQU9CZ05WSFE4QkFmOEVCQU1DQXFRd0V3WURWUjBsQkF3d0NnWUlLd1lCQlFVSEF3RXcKRHdZRFZSMFRBUUgvQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVbytvR25rZFZkTWNrUnpQYXBUZ3BuMnJxZEdjdwpKd1lEVlIwUkJDQXdIb0lXWldSblpXTnlZV1owTG1GamIzSnVjMjltZEM1cGI0Y0V3S2hZU2pBS0JnZ3Foa2pPClBRUURBZ05KQURCR0FpRUFuRUxMMXBVOUN5aGdOSEMxUGJMaFVubHpvUmxlai9xZ0pLUlp6eWFMbTFvQ0lRRE4KUHhrdGsrcmkxaHl6TkM5MG1UZlZFc1BRWVlvMHFTeWNDVWQycFNVQmFRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+          config:
+            region: minio
+            s3ForcePathStyle: true
+            publicUrl: https://192.168.88.74:9000
+            s3Url: https://192.168.88.74:9000
+      volumeSnapshotLocation:
+        - name: default
+          provider: aws
+          config:
+            region: minio
+    credentials: 
+      useSecret: true
+      name: cloud-credentials
+      secretContents:
+        cloud: |
+          [default]
+          aws_access_key_id = minioadmin
+          aws_secret_access_key = minioadmin
+    backupEnabled: true
+    snaphostsEnabled: true
+    deployNodeAgent: true
+    defaultVolumesToFsBackup: true

@@ -1,0 +1,17 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: argocd
+spec:
+  clusterSelector:
+    matchLabels:
+      argocdChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts/stable
+  chartName: argo-cd
+  namespace: argocd
+  valuesTemplate: |
+    server:
+      service:
+        type: NodePort
+        nodePortHttp: 32570
+        nodePortHttps: 32571

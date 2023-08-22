@@ -1,0 +1,5 @@
+extraArgs:
+  - --token-ttl=0
+service:
+  type: NodePort
+  nodePort: 32444

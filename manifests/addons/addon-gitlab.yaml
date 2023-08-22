@@ -1,0 +1,27 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: gitlab
+spec:
+  clusterSelector:
+    matchLabels:
+      gitlabChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts/stable
+  chartName: gitlab
+  namespace: gitlab
+  valuesTemplate: |
+    global:
+      edition: ce
+    hosts:
+      domain: edgecraft.acornsoft.io
+    ingress:
+      configureCertmanager: false
+      class: nginx
+      tls:
+        enabled: true
+    certmanager-issuer:
+      email: ccambo@acornsoft.io
+    certmanager:
+      install: false
+    nginx-ingress:
+      enabled: false

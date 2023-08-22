@@ -1,0 +1,20 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: spark-operator
+spec:
+  clusterSelector:
+    matchLabels:
+      sparkoperatorChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts/stable
+  chartName: spark-operator
+  namespace: spark-operator
+  valuesTemplate: |
+    replicaCount: 1
+    image:
+      repository: ghcr.io/googlecloudplatform/spark-operator
+      pullPolicy: IfNotPresent
+      tag: ""
+    imagePullSecrets: []
+    # 별도의 미리 생성한 네임스페이스에서 Job을 분리해서 실행할 경우 지정.
+    #sparkJobNamespace: "spark-work"
