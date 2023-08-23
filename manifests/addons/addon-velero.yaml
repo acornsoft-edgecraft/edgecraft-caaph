@@ -7,7 +7,7 @@ spec:
     matchLabels:
       veleroChart: enabled
   #repoURL: https://vmware-tanzu.github.io/helm-charts
-  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts/stable
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
   chartName: velero
   namespace: velero
   valuesTemplate: |

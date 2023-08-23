@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kubectl apply -f ./addmons --recursive
+kubectl apply -f ./addons --recursive
