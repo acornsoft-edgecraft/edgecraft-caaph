@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.0
-    created: "2023-08-25T09:54:52.290263+09:00"
+    created: "2023-08-25T10:01:06.607457+09:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -18,7 +18,7 @@ entries:
       version: 4.23.0
     description: A Helm chart for Argo CD, a declarative, GitOps continuous delivery
       tool for Kubernetes.
-    digest: 50bbcbe58c3088eaae224a9b4d1dd02a63ac3b4999f4896f73e473db9884dc46
+    digest: 35cc87db5f48d22d81e05ee2d680e1fa2c858d995c4f5191327807e8b98b6ec3
     home: https://github.com/argoproj/argo-helm
     icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
     keywords:
@@ -39,9 +39,9 @@ entries:
   csi-driver-nfs:
   - apiVersion: v1
     appVersion: v4.2.0
-    created: "2023-08-25T09:54:52.291414+09:00"
+    created: "2023-08-25T10:01:06.60855+09:00"
     description: CSI NFS Driver for Kubernetes
-    digest: f73df4173343ad09259ce8a2650d6762ddee5beafb351cf2185f6a42ce911dcc
+    digest: 474e32663c924eb47a1b870b5c0540d1bd8f3460c17de0856e93ee635cf25ecf
     name: csi-driver-nfs
     urls:
     - csi-driver-nfs-v4.2.0.tgz
@@ -49,7 +49,7 @@ entries:
   gitlab:
   - apiVersion: v1
     appVersion: v16.1.1
-    created: "2023-08-25T09:54:52.333045+09:00"
+    created: "2023-08-25T10:01:06.650705+09:00"
     dependencies:
     - name: gitlab
       repository: ""
@@ -93,7 +93,7 @@ entries:
       repository: https://charts.gitlab.io/
       version: 0.4.0
     description: The One DevOps Platform
-    digest: 03a8dabef543675139a58be555e3fea10c234bfcbc70d527de1d624bb2a3537b
+    digest: af215df702df96b501add07bc2ccfcd4163d5d84100c162e744f99c4e361ab90
     home: https://about.gitlab.com/
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
     keywords:
@@ -110,7 +110,7 @@ entries:
   gitlab-ce:
   - apiVersion: v1
     appVersion: 9.4.1
-    created: "2023-08-25T09:54:52.334572+09:00"
+    created: "2023-08-25T10:01:06.652535+09:00"
     dependencies:
     - name: redis
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -120,7 +120,7 @@ entries:
       version: 0.8.1
     deprecated: true
     description: GitLab Community Edition
-    digest: 4c1e798f508c6afee93bfe84bfa6b0fdcd199464d1f8a5610d9dfdd2f990dc21
+    digest: 13cd8182cac30659158af8ca39c87cd47fb9f302058ef926d6011250ceb232df
     home: https://about.gitlab.com
     keywords:
     - git
@@ -161,9 +161,9 @@ entries:
           name: traefik
     apiVersion: v2
     appVersion: 3.0.0
-    created: "2023-08-25T09:54:52.338517+09:00"
+    created: "2023-08-25T10:01:06.656867+09:00"
     description: Multi-user Jupyter installation
-    digest: ac74a7616cf7b1d5fc5c94bbb098c1112dd2a48a18f655f01428876500b65f77
+    digest: 2faa90bb9cc805ae3632a2c93d733d92be95db748f8aa25480d76a9e1b6d933d
     home: https://z2jh.jupyter.org
     icon: https://jupyterhub.github.io/helm-chart/images/hublogo.svg
     keywords:
@@ -185,14 +185,14 @@ entries:
   kubernetes-dashboard:
   - apiVersion: v2
     appVersion: v2.7.0
-    created: "2023-08-25T09:54:52.340324+09:00"
+    created: "2023-08-25T10:01:06.658875+09:00"
     dependencies:
     - condition: metrics-server.enabled
       name: metrics-server
       repository: https://kubernetes-sigs.github.io/metrics-server/
       version: 3.8.4
     description: General-purpose web UI for Kubernetes clusters
-    digest: 90a6d813959eefec9d58ee80270d7c9fb571968e6e891b1e860416f06d1821f6
+    digest: 71737ba7aae47f796587453111fe6b5f25b9763e9a19e571b58aa1e12e8690aa
     home: https://github.com/kubernetes/dashboard
     icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg
     keywords:
@@ -211,9 +211,9 @@ entries:
   spark-operator:
   - apiVersion: v2
     appVersion: v1beta2-1.3.8-3.1.1
-    created: "2023-08-25T09:54:52.341826+09:00"
+    created: "2023-08-25T10:01:06.660778+09:00"
     description: A Helm chart for Spark on Kubernetes operator
-    digest: 4321d623775a06202b3e09643236eb44785b6bbfcd5d199d70773893e196ba46
+    digest: 11b762c48efe1ffe531988b9839b1417a51cfb3a3f43bb80c5b1b714b060bb88
     home: https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
     keywords:
     - spark
@@ -227,14 +227,14 @@ entries:
   velero:
   - apiVersion: v2
     appVersion: 1.11.1
-    created: "2023-08-25T09:54:52.345008+09:00"
+    created: "2023-08-25T10:01:06.665672+09:00"
     dependencies:
     - condition: minio.enabled
       name: minio
       repository: https://charts.min.io
       version: 5.0.13
     description: A Helm chart for velero
-    digest: 0509cfc52af50fde1544d0564975f3fc901356f6fc6372bd6ca1a7a933d161cb
+    digest: a68fb9381c5a72fa6918e5da04c8e742a4a01280e946260e1941fcda8fe16a32
     home: https://github.com/vmware-tanzu/velero
     icon: https://cdn-images-1.medium.com/max/1600/1*-9mb3AKnKdcL_QD3CMnthQ.png
     kubeVersion: '>=1.16.0-0'
@@ -253,4 +253,4 @@ entries:
     urls:
     - velero-4.1.4.tgz
     version: 4.1.4
-generated: "2023-08-25T09:54:52.275398+09:00"
+generated: "2023-08-25T10:01:06.593297+09:00"
