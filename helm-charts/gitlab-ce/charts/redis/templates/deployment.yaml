@@ -24,6 +24,12 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
       {{- end }}
+      securityContext:
+        runAsUser: 0
+        fsGroup: 0
+        runAsNonRoot: false
+      hostPath:
+        chown: false
       containers:
       - name: {{ template "redis.fullname" . }}
         image: "{{ .Values.image }}"
