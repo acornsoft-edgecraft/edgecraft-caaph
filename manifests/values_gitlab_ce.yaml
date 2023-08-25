@@ -6,7 +6,8 @@
 ## GitLab CE image
 ## ref: https://hub.docker.com/r/gitlab/gitlab-ce/tags/
 ##
-image: gitlab/gitlab-ce:15.9.3-ce.0
+#image: gitlab/gitlab-ce:15.9.3-ce.0
+image: gitlab/gitlab-ce:latest
 
 ## Specify a imagePullPolicy
 ## 'Always' if imageTag is 'latest', else set to 'IfNotPresent'
