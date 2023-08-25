@@ -125,5 +125,5 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end }}
-{{ else }
+{{ else }}
 {{ end }}
