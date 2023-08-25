@@ -5,3 +5,10 @@
 - 소스 구성은 Helm의 Subchart 방식을 사용합니다.
 
 ## installation
+
+### Helm Repo 등록
+
+```bash
+$ helm repo add edgecraft https://acornsoft-edgecraft.github.io/edgecraft-caaph/
+$ helm repo update
+```
