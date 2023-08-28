@@ -273,7 +273,6 @@ master:
     enabled: true
     # runAsUser: 1001
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## @param master.kind Use either Deployment or StatefulSet (default)
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
@@ -661,7 +660,6 @@ replica:
     enabled: true
     # runAsUser: 1001
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## @param replica.schedulerName Alternate scheduler for Redis&reg; replicas pods
   ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
@@ -1124,7 +1122,6 @@ sentinel:
     enabled: true
     # runAsUser: 1001
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## @param sentinel.lifecycleHooks for the Redis&reg; sentinel container(s) to automate configuration before or after startup
   ##
@@ -1397,7 +1394,6 @@ metrics:
     enabled: true
     # runAsUser: 1001
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## @param metrics.extraVolumes Optionally specify extra list of additional volumes for the Redis&reg; metrics sidecar
   ##

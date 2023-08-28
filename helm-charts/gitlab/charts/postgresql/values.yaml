@@ -465,7 +465,6 @@ primary:
     enabled: true
     # runAsUser: 1001
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## @param primary.hostAliases PostgreSQL primary pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
@@ -808,7 +807,6 @@ readReplicas:
     enabled: true
     # runAsUser: 1001
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## @param readReplicas.hostAliases PostgreSQL read only pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
@@ -1287,7 +1285,6 @@ metrics:
     # runAsUser: 1001
     # runAsNonRoot: true
     runAsUser: 0
-    fsGroup: 0
     runAsNonRoot: false
   ## Configure extra options for PostgreSQL Prometheus exporter containers' liveness, readiness and startup probes
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes
