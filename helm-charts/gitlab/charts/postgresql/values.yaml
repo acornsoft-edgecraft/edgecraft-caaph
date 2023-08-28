@@ -452,7 +452,10 @@ primary:
   ##
   podSecurityContext:
     enabled: true
-    fsGroup: 1001
+    # fsGroup: 1001
+    runAsUser: 0
+    fsGroup: 0
+    runAsNonRoot: false
   ## Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
   ## @param primary.containerSecurityContext.enabled Enable container security context
@@ -460,7 +463,10 @@ primary:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001
+    # runAsUser: 1001
+    runAsUser: 0
+    fsGroup: 0
+    runAsNonRoot: false
   ## @param primary.hostAliases PostgreSQL primary pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
@@ -789,7 +795,10 @@ readReplicas:
   ##
   podSecurityContext:
     enabled: true
-    fsGroup: 1001
+    # fsGroup: 1001
+    runAsUser: 0
+    fsGroup: 0
+    runAsNonRoot: false
   ## Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
   ## @param readReplicas.containerSecurityContext.enabled Enable container security context
@@ -797,7 +806,10 @@ readReplicas:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001
+    # runAsUser: 1001
+    runAsUser: 0
+    fsGroup: 0
+    runAsNonRoot: false
   ## @param readReplicas.hostAliases PostgreSQL read only pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
@@ -1272,8 +1284,11 @@ metrics:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001
-    runAsNonRoot: true
+    # runAsUser: 1001
+    # runAsNonRoot: true
+    runAsUser: 0
+    fsGroup: 0
+    runAsNonRoot: false
   ## Configure extra options for PostgreSQL Prometheus exporter containers' liveness, readiness and startup probes
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes
   ## @param metrics.livenessProbe.enabled Enable livenessProbe on PostgreSQL Prometheus exporter containers

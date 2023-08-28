@@ -1,30 +1,3 @@
-# global:
-#   edition: ce
-#   hosts:
-#     domain: edgecraft.acornsoft.io
-#   ingress:
-#     configureCertmanager: false
-#     class: nginx
-#     tls:
-#       enabled: true
-#   # minio:
-#   #   enabled: false
-
-# # certmanager-issuer:
-# #   email: ccambo@acornsoft.io
-
-# certmanager:
-#   install: false
-
-# prometheus:
-#   install: false
-
-# # redis:
-# #   install: false
-
-# nginx-ingress:
-#   enabled: false
-
 global:
   edition: ce
   hosts:
@@ -48,6 +21,9 @@ global:
 certmanager: # 공인 IP, 도메인이 없어 cert-manager 컴포넌트 미사용
   install: false
 
+certmanager-issuer:
+  email: ccambo@acornsoft.io
+
 # gitlab nginx-ingress 컴포넌트 미사용
 # 준비사항에서 설치한 쿠버네티스 ingress를 이용함
 nginx-ingress:
@@ -61,3 +37,12 @@ gitlab-runner:
 
 registry:
   enabled: false
+# helm upgrade --install gitlab gitlab/gitlab \                                                                                           ✔  38s
+# --namespace gitlab \
+# --create-namespace \
+# --timeout 600s \
+# --set gloabl.edition=ce \
+# --set gitlab-runner.install=false \
+# --set gitlab.hosts.domain=edgecraft.acornsoft.io \
+# --set certmanager-issuer.email=ccambo@acornsoft.io \
+# --set certmanager.install=false

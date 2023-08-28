@@ -19,7 +19,7 @@ imagePullPolicy: IfNotPresent
 ## ref: https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab
 ##
 # externalUrl: http://your-domain.com/
-externalUrl: https://github.edgecraft.acornsoft.io/
+externalUrl: https://gitlab.edgecraft.acornsoft.io/
 
 ## Change the initial default admin password if set. If not set, you'll be
 ## able to set it when you first visit your install.
