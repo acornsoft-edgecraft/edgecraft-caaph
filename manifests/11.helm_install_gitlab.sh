@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# install argo-cd
+# install gitlab
 helm upgrade \
     --cleanup-on-fail \
     --install \

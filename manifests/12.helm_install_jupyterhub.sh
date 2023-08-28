@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# install argo-cd
+# install jupyterhub
 helm upgrade \
     --cleanup-on-fail \
     --install \
