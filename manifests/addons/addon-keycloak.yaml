@@ -1,0 +1,42 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: keycloak
+spec:
+  clusterSelector:
+    matchLabels:
+      keycloakChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: keycloak
+  version: 18.4.3
+  namespace: keycloak
+  releaseName: codecentric
+  options:
+    disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    atomic: true
+    waitForJobs: true
+    wait: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    upgrade:
+      #   force: false
+      resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    service:
+      type: NodePort
+    postgresql:
+      global:
+        storageClass: nfs-cli
+      volumePermission:
+        enabled: true

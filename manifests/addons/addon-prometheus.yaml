@@ -1,0 +1,37 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: prometheus
+spec:
+  clusterSelector:
+    matchLabels:
+      prometheusChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: kube-prometheus-stack
+  version: 48.2.2
+  namespace: monitoring
+  releaseName: prometheus
+  options:
+    # disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    # atomic: true
+    waitForJobs: true
+    wait: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    # upgrade:
+    #   force: false
+    #   resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    grafana:
+      adminPassword: "1234"

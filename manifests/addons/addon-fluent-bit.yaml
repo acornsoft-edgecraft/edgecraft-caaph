@@ -1,0 +1,53 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: fluentbit
+spec:
+  clusterSelector:
+    matchLabels:
+      fluentbitChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: fluent-bit
+  version: 0.36.0
+  namespace: efk
+  #releaseName: fluentbit
+  options:
+    # disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    # atomic: true
+    waitForJobs: true
+    wait: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    # upgrade:
+    #   force: false
+    #   resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    config:
+      inputs: |
+        [INPUT]
+          Name tail
+          Path /var/log/containers/*.log
+          multiline.parser docker, cri
+          Tag kube.*
+          Mem_Buf_Limit 5MB
+          Skip_Long_Lines On
+      outputs: |
+        [OUTPUT]
+          Name es
+          Match kube.*
+          Host elasticsearch-master
+          Logstash_Format On
+          Retry_Limit False
+          Replace_Dots On
+          # Trace_Error On

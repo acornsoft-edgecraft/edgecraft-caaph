@@ -1,0 +1,35 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: koreboard
+spec:
+  clusterSelector:
+    matchLabels:
+      koreboardChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: kore-board
+  version: 0.5.5
+  namespace: kore-board
+  releaseName: koreboard
+  options:
+    disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    atomic: true
+    waitForJobs: true
+    wait: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    upgrade:
+      #   force: false
+      resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |

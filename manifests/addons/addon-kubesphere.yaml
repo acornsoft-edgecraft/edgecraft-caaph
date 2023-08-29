@@ -1,0 +1,44 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: kubesphere
+spec:
+  clusterSelector:
+    matchLabels:
+      kubesphereChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: ks-installer
+  version: 0.3.1
+  namespace: kubesphere-system
+  releaseName: kubesphere
+  options:
+    disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    atomic: true
+    waitForJobs: true
+    wait: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    upgrade:
+      #   force: false
+      resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    registry: 192.168.88.206
+    cc:
+      persistence:
+        storageClass: nfs-csi
+      authentication:
+        adminPassword: Pass0000@
+      common:
+        monitoring:
+          endpoint: http://prometheus-operated.monitoring.svc:9090

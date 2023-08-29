@@ -1,0 +1,50 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: certmanager
+spec:
+  clusterSelector:
+    matchLabels:
+      certmanagerChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: cert-manager
+  version: v1.12.0
+  namespace: cert-manager
+  #releaseName: cert-manager
+  options:
+    disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    atomic: true
+    waitForJobs: true
+    wait: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      includeCRDs: true
+    upgrade:
+      #   force: false
+      resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    global:
+      rbac:
+        create: true
+        aggregateClusterRoles: true
+      leaderElection:
+        namespace: "kube-system"
+    installCRDs: false
+    replicaCount: 1
+    image:
+      repository: quay.io/jetstack/cert-manager-controller
+      pullPolicy: IfNotPresent
+    namespace: ""
+    serviceAccount:
+      create: true
+      automountServiceAccountToken: true

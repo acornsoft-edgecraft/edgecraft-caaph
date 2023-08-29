@@ -1,0 +1,44 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: zabbix
+spec:
+  clusterSelector:
+    matchLabels:
+      zabbixChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: zabbix
+  version: 4.0.2
+  namespace: zabbix
+  releaseName: zabbix
+  options:
+    # disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    # atomic: true
+    waitForJobs: true
+    wait: true
+    dependencyUpdate: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    # upgrade:
+    #   force: false
+    #   resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    zabbixAgent:
+      runAsDaemonSet: true
+    zabbixWeb:
+      service:
+        type: NodePort
+        nodePort: 31080
+    zabbixWebService:
+      enabled: false
