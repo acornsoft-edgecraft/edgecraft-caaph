@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.0
-    created: "2023-08-28T14:39:34.617709+09:00"
+    created: "2023-08-30T13:53:32.186337+09:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -18,7 +18,7 @@ entries:
       version: 4.23.0
     description: A Helm chart for Argo CD, a declarative, GitOps continuous delivery
       tool for Kubernetes.
-    digest: 9a3e410c2f9aa00ad7ca159323b13c707293e8faa34e657035a4a95b7b3d04db
+    digest: 7bd394a174ebf881703ce7465c65420a813f6d8dcb75ad6934497ad1c6d29c9c
     home: https://github.com/argoproj/argo-helm
     icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
     keywords:
@@ -36,20 +36,98 @@ entries:
     urls:
     - argo-cd-5.43.4.tgz
     version: 5.43.4
+  cert-manager:
+  - annotations:
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/signKey: |
+        fingerprint: 1020CF3C033D4F35BAE1C19E1226061C665DF13E
+        url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
+    apiVersion: v1
+    appVersion: v1.12.0
+    created: "2023-08-30T13:53:32.190176+09:00"
+    description: A Helm chart for cert-manager
+    digest: f55c02825cacd38b8f3f22ce0cf0fa16a55f9a89e50baa693e0e002bd3d1ea57
+    home: https://github.com/cert-manager/cert-manager
+    icon: https://raw.githubusercontent.com/cert-manager/cert-manager/d53c0b9270f8cd90d908460d69502694e1838f5f/logo/logo-small.png
+    keywords:
+    - cert-manager
+    - kube-lego
+    - letsencrypt
+    - tls
+    kubeVersion: '>= 1.22.0-0'
+    maintainers:
+    - email: cert-manager-maintainers@googlegroups.com
+      name: cert-manager-maintainers
+      url: https://cert-manager.io
+    name: cert-manager
+    sources:
+    - https://github.com/cert-manager/cert-manager
+    urls:
+    - cert-manager-v1.12.0.tgz
+    version: v1.12.0
   csi-driver-nfs:
   - apiVersion: v1
     appVersion: v4.2.0
-    created: "2023-08-28T14:39:34.618863+09:00"
+    created: "2023-08-30T13:53:32.191284+09:00"
     description: CSI NFS Driver for Kubernetes
-    digest: cb03eb93146aff0294fb2d0e4c0f4532616f21071815b3953c5a4eaa0b9e0095
+    digest: 55e15eec42b7c5a4b2dc5e5213212c6017978d299f824156a25a3498940d3c60
     name: csi-driver-nfs
     urls:
     - csi-driver-nfs-v4.2.0.tgz
     version: v4.2.0
+  elasticsearch:
+  - apiVersion: v1
+    appVersion: 7.10.2
+    created: "2023-08-30T13:53:32.19355+09:00"
+    description: Official Elastic helm chart for Elasticsearch
+    digest: 46eba03b363088d83b0fd0611d0f6e3c3f142c52193c1241762ac8632657d085
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/elasticsearch.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: elasticsearch
+    sources:
+    - https://github.com/elastic/elasticsearch
+    urls:
+    - elasticsearch-7.10.2.tgz
+    version: 7.10.2
+  fluent-bit:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
+          description: "Set fluent-bit binary as command"
+    apiVersion: v1
+    appVersion: 2.1.7
+    created: "2023-08-30T13:53:32.196162+09:00"
+    description: Fast and lightweight log processor and forwarder or Linux, OSX and
+      BSD family operating systems.
+    digest: 1f75fa7bd8f3d460062125b0af29406b6ae9200be6099493093d059e2e0efea3
+    home: https://fluentbit.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/fluentd/fluentbit/icon/fluentbit-icon-color.svg
+    keywords:
+    - logging
+    - fluent-bit
+    - fluentd
+    maintainers:
+    - email: eduardo@calyptia.com
+      name: edsiper
+    - email: naseem@transit.app
+      name: naseemkullah
+    - email: towmeykaw@gmail.com
+      name: Towmeykaw
+    - email: steve.hipwell@gmail.com
+      name: stevehipwell
+    name: fluent-bit
+    sources:
+    - https://github.com/fluent/fluent-bit/
+    urls:
+    - fluent-bit-0.36.0.tgz
+    version: 0.36.0
   gitlab:
   - apiVersion: v1
     appVersion: v16.1.1
-    created: "2023-08-28T14:39:34.66088+09:00"
+    created: "2023-08-30T13:53:32.235049+09:00"
     dependencies:
     - name: gitlab
       repository: ""
@@ -93,7 +171,7 @@ entries:
       repository: https://charts.gitlab.io/
       version: 0.4.0
     description: The One DevOps Platform
-    digest: ca499c62aeaaa02cfb029e7eb1b1bccf42d609e2d2aeb0c71f7bfb19a11817c1
+    digest: 1c4b33c2db01d35b708ce87429e1cebedd0ac3be09446578a8e1d11acc789b92
     home: https://about.gitlab.com/
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
     keywords:
@@ -110,7 +188,7 @@ entries:
   gitlab-ce:
   - apiVersion: v1
     appVersion: 9.4.1
-    created: "2023-08-28T14:39:34.664862+09:00"
+    created: "2023-08-30T13:53:32.238706+09:00"
     dependencies:
     - name: redis
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -135,6 +213,63 @@ entries:
     urls:
     - gitlab-ce-0.2.3.tgz
     version: 0.2.3
+  harbor:
+  - apiVersion: v1
+    appVersion: 2.8.2
+    created: "2023-08-30T13:53:32.243023+09:00"
+    description: An open source trusted cloud native registry that stores, signs,
+      and scans content
+    digest: 4cbdf79562127d3a4533610898667e06570afae2c53c60bebfc09f9c8cea80ce
+    home: https://goharbor.io
+    icon: https://raw.githubusercontent.com/goharbor/website/master/static/img/logos/harbor-icon-color.png
+    keywords:
+    - docker
+    - registry
+    - harbor
+    maintainers:
+    - email: yinw@vmware.com
+      name: Wenkai Yin
+    - email: hweiwei@vmware.com
+      name: Weiwei He
+    - email: yshengwen@vmware.com
+      name: Shengwen Yu
+    name: harbor
+    sources:
+    - https://github.com/goharbor/harbor
+    - https://github.com/goharbor/harbor-helm
+    urls:
+    - harbor-1.12.2.tgz
+    version: 1.12.2
+  ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - "Added a doc line to the missing helm value service.internal.loadBalancerIP (#9406)"
+        - "feat(helm): Add loadBalancerClass (#9562)"
+        - "added helmshowvalues example (#10019)"
+        - "Update Ingress-Nginx version controller-v1.8.1"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.8.1
+    created: "2023-08-30T13:53:32.246782+09:00"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 5811f8a345422dd1621c2acf65cbff6e490f9d3666c7cd8355a433bdd509e554
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - ingress-nginx-4.7.1.tgz
+    version: 4.7.1
   jupyterhub:
   - annotations:
       artifacthub.io/images: |
@@ -160,9 +295,9 @@ entries:
           name: traefik
     apiVersion: v2
     appVersion: 3.0.0
-    created: "2023-08-28T14:39:34.66846+09:00"
+    created: "2023-08-30T13:53:32.250186+09:00"
     description: Multi-user Jupyter installation
-    digest: 65fe8c475ea5cb5edb7743692c3c503520aee3870b9afbee4074151d1ea2404b
+    digest: ab4714ce2ad5840ce4af53d99396f21af788158c9aaeb997e0f17bf6b633625d
     home: https://z2jh.jupyter.org
     icon: https://jupyterhub.github.io/helm-chart/images/hublogo.svg
     keywords:
@@ -181,17 +316,163 @@ entries:
     urls:
     - jupyterhub-2.0.0.tgz
     version: 2.0.0
+  keycloak:
+  - apiVersion: v2
+    appVersion: 17.0.1-legacy
+    created: "2023-08-30T13:53:32.255963+09:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 10.16.2
+    description: Open Source Identity and Access Management For Modern Applications
+      and Services
+    digest: 7ee4d30382f772ddc45d5447ea1a8ab04afb25a7c9655ea5b1e6823d53746912
+    home: https://www.keycloak.org/
+    icon: https://www.keycloak.org/resources/images/keycloak_icon_512px.svg
+    keywords:
+    - sso
+    - idm
+    - openid connect
+    - saml
+    - kerberos
+    - ldap
+    maintainers:
+    - email: unguiculus@gmail.com
+      name: unguiculus
+    - email: thomas.darimont+github@gmail.com
+      name: thomasdarimont
+    name: keycloak
+    sources:
+    - https://github.com/codecentric/helm-charts
+    - https://github.com/jboss-dockerfiles/keycloak
+    - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    urls:
+    - keycloak-18.4.3.tgz
+    version: 18.4.3
+  kibana:
+  - apiVersion: v1
+    appVersion: 7.10.2
+    created: "2023-08-30T13:53:32.257028+09:00"
+    description: Official Elastic helm chart for Kibana
+    digest: 6546ee0239b6539a3b2808a1e7763c4fcaeed37a9d9fb95045989c75b291291b
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/kibana.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: kibana
+    sources:
+    - https://github.com/elastic/kibana
+    urls:
+    - kibana-7.10.2.tgz
+    version: 7.10.2
+  kore-board:
+  - apiVersion: v2
+    appVersion: v0.5.5
+    created: "2023-08-30T13:53:32.257721+09:00"
+    description: Kubernetes multi-clusters dashboard
+    digest: 64b217732d5001f9e15ed3eecb57bf5026698c2df58d799e7cc4a354f6870d2f
+    name: kore-board
+    type: application
+    urls:
+    - kore-board-0.5.5.tgz
+    version: 0.5.5
+  ks-installer:
+  - apiVersion: v2
+    appVersion: 3.2.1
+    created: "2023-08-30T13:53:32.258887+09:00"
+    description: The helm chart of KubeSphere, supports installing KubeSphere on existing
+      Kubernetes.
+    digest: 1187ab8ddda6fa3b9c1b85df213a0d08f1aecb390113bf3e5b5924d755a5a788
+    icon: https://kubesphere.io/static/logo.16097928.svg
+    keywords:
+    - kubesphere
+    - installer
+    name: ks-installer
+    type: application
+    urls:
+    - ks-installer-0.3.1.tgz
+    version: 0.3.1
+  kube-prometheus-stack:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Upstream Project
+          url: https://github.com/prometheus-operator/kube-prometheus
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v0.66.0
+    created: "2023-08-30T13:53:32.282078+09:00"
+    dependencies:
+    - condition: crds.enabled
+      name: crds
+      repository: ""
+      version: 0.0.0
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 5.10.*
+    - condition: nodeExporter.enabled
+      name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.21.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.58.*
+    - condition: windowsMonitoring.enabled
+      name: prometheus-windows-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 0.1.*
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 4d8fe460a03d9b5228f81c91dc506cf9fd38b1b23c141fb27cb2494a9985549f
+    home: https://github.com/prometheus-operator/kube-prometheus
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - operator
+    - prometheus
+    - kube-prometheus
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: andrew@quadcorps.co.uk
+      name: andrewgkew
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: github.gkarthiks@gmail.com
+      name: gkarthiks
+    - email: kube-prometheus-stack@sisti.pt
+      name: GMartinez-Sisti
+    - email: scott@r6by.com
+      name: scottrigby
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: quentin.bisson@gmail.com
+      name: QuentinBisson
+    name: kube-prometheus-stack
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - kube-prometheus-stack-48.2.2.tgz
+    version: 48.2.2
   kubernetes-dashboard:
   - apiVersion: v2
     appVersion: v2.7.0
-    created: "2023-08-28T14:39:34.670433+09:00"
+    created: "2023-08-30T13:53:32.283959+09:00"
     dependencies:
     - condition: metrics-server.enabled
       name: metrics-server
       repository: https://kubernetes-sigs.github.io/metrics-server/
       version: 3.8.4
     description: General-purpose web UI for Kubernetes clusters
-    digest: 888c5fc15f54e0d449684ebc5d1b0e88581298c4b5371aca0657bd31f44a5eb1
+    digest: 8ebef843d87fe402137f703b94902b3de676e47387262a29305f525a2a28e500
     home: https://github.com/kubernetes/dashboard
     icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg
     keywords:
@@ -207,12 +488,41 @@ entries:
     urls:
     - kubernetes-dashboard-6.0.8.tgz
     version: 6.0.8
+  nexus-repository-manager:
+  - apiVersion: v2
+    appVersion: 3.58.1
+    created: "2023-08-30T13:53:32.285156+09:00"
+    description: Sonatype Nexus Repository Manager - Universal Binary repository
+    digest: 384784deb1972dcbc2f88b4414dd9c266c463753595cfc52e6a5de8b892f3168
+    home: https://www.sonatype.com/nexus-repository-oss
+    icon: https://sonatype.github.io/helm3-charts/NexusRepo_Vertical.svg
+    keywords:
+    - artifacts
+    - dependency
+    - management
+    - sonatype
+    - nexus
+    - repository
+    - quickstart
+    - ci
+    - repository-manager
+    - nexus3
+    maintainers:
+    - email: support@sonatype.com
+      name: Sonatype
+    name: nexus-repository-manager
+    sources:
+    - https://github.com/sonatype/nexus-public
+    type: application
+    urls:
+    - nexus-repository-manager-58.1.0.tgz
+    version: 58.1.0
   spark-operator:
   - apiVersion: v2
     appVersion: v1beta2-1.3.8-3.1.1
-    created: "2023-08-28T14:39:34.672948+09:00"
+    created: "2023-08-30T13:53:32.287309+09:00"
     description: A Helm chart for Spark on Kubernetes operator
-    digest: 35cdb19e9b067747c26b14466609020b63cf49cfbb9d1bcce6e5b88f800ecef3
+    digest: e1be6577347a4f12a68342a50c72a96672bb2254ed3cea570b72e31071ca7713
     home: https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
     keywords:
     - spark
@@ -226,14 +536,14 @@ entries:
   velero:
   - apiVersion: v2
     appVersion: 1.11.1
-    created: "2023-08-28T14:39:34.676772+09:00"
+    created: "2023-08-30T13:53:32.29082+09:00"
     dependencies:
     - condition: minio.enabled
       name: minio
       repository: https://charts.min.io
       version: 5.0.13
     description: A Helm chart for velero
-    digest: 1bfa8ee3ad03e621360264e0daf4e92b1a292b17b31088c2b7e5cd631a9358cf
+    digest: 7925b27c2fa6aea50a4466f80c6ae77288eeb5db87e90fedb3036f4e60deb5e1
     home: https://github.com/vmware-tanzu/velero
     icon: https://cdn-images-1.medium.com/max/1600/1*-9mb3AKnKdcL_QD3CMnthQ.png
     kubeVersion: '>=1.16.0-0'
@@ -252,4 +562,32 @@ entries:
     urls:
     - velero-4.1.4.tgz
     version: 4.1.4
-generated: "2023-08-28T14:39:34.603484+09:00"
+  zabbix:
+  - apiVersion: v2
+    appVersion: 6.0.20
+    created: "2023-08-30T13:53:32.293124+09:00"
+    description: Zabbix is a mature and effortless enterprise-class open source monitoring
+      solution for network monitoring and application monitoring of millions of metrics.
+    digest: d18210dae629ea0eeabdc000206afcdfcf9acd490cbec1eefe8093318476b3b7
+    home: https://www.zabbix.com
+    icon: https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png
+    keywords:
+    - zabbix
+    - monitoring
+    - metrics
+    - kubernetes
+    - helm
+    maintainers:
+    - email: aeciopires@yahoo.com.br
+      name: Aecio Pires
+      url: https://github.com/aeciopires
+    - email: christian.anton@secadm.de
+      name: Christian Anton
+      url: https://secadm.de
+    name: zabbix
+    sources:
+    - https://github.com/zabbix-community/helm-zabbix
+    urls:
+    - zabbix-4.0.2.tgz
+    version: 4.0.2
+generated: "2023-08-30T13:53:32.1724+09:00"
