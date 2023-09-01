@@ -9,7 +9,30 @@ spec:
   #repoURL: https://vmware-tanzu.github.io/helm-charts
   repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
   chartName: velero
+  version: 5.0.2
   namespace: velero
+  releaseName: velero
+  options:
+    #   disableHooks: true
+    #   skipCRDs: false
+    #   subNodes: fasle
+    #   disableOpenAPIValidation: false
+    #   atomic: true
+    waitForJobs: true
+    wait: true
+    #   timeout: 5m
+    install:
+      createNamespace: true
+    #     includeCRDs: true
+    upgrade:
+      #     force: false
+      #     resetValues: true
+      #     reuseValues: false
+      #     maxHistory: 10
+      cleanupOnFail: true
+  #   uninstall:
+  #     keepHistory: false
+  #     description: ""
   valuesTemplate: |
     image:
       repository: velero/velero

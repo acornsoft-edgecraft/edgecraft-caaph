@@ -1,0 +1,43 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: consul
+spec:
+  clusterSelector:
+    matchLabels:
+      consulChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: consul
+  version: 1.2.0
+  namespace: consul
+  releaseName: consul
+  options:
+    # disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    # atomic: true
+    waitForJobs: true
+    wait: true
+    dependencyUpdate: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    # upgrade:
+    #   force: false
+    #   resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    server:
+      replicas: 3
+    client:
+      enabled: true
+    ui:
+      service:
+        type: NodePort

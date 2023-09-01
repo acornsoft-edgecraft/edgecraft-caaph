@@ -8,7 +8,30 @@ spec:
       sparkoperatorChart: enabled
   repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
   chartName: spark-operator
+  version: 1.1.27
   namespace: spark-operator
+  releaseName: spark-operator
+  options:
+    #   disableHooks: true
+    #   skipCRDs: false
+    #   subNodes: fasle
+    #   disableOpenAPIValidation: false
+    #   atomic: true
+    waitForJobs: true
+    wait: true
+    #   timeout: 5m
+    install:
+      createNamespace: true
+    #     includeCRDs: true
+    upgrade:
+      #     force: false
+      #     resetValues: true
+      #     reuseValues: false
+      #     maxHistory: 10
+      cleanupOnFail: true
+  #   uninstall:
+  #     keepHistory: false
+  #     description: ""
   valuesTemplate: |
     replicaCount: 1
     image:

@@ -8,7 +8,30 @@ spec:
       dashboardChart: enabled
   repoURL: https://kubernetes.github.io/dashboard/
   chartName: kubernetes-dashboard
+  version: 6.0.8
   namespace: kubernetes-dashboard
+  releaseName: kubernetes-dashboard
+  options:
+    #   disableHooks: true
+    #   skipCRDs: false
+    #   subNodes: fasle
+    #   disableOpenAPIValidation: false
+    #   atomic: true
+    waitForJobs: true
+    wait: true
+    #   timeout: 5m
+    install:
+      createNamespace: true
+    #     includeCRDs: true
+    upgrade:
+      #     force: false
+      #     resetValues: true
+      #     reuseValues: false
+      #     maxHistory: 10
+      cleanupOnFail: true
+  #   uninstall:
+  #     keepHistory: false
+  #     description: ""
   valuesTemplate: |
     extraArgs:
       - --token-ttl=0

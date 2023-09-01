@@ -1,0 +1,49 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha1
+kind: HelmChartProxy
+metadata:
+  name: kiali
+spec:
+  clusterSelector:
+    matchLabels:
+      kialiChart: enabled
+  repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
+  chartName: kiali
+  version: 1.72.0
+  namespace: istio-system
+  releaseName: kiali-server
+  options:
+    # disableHooks: true
+    # skipCRDs: false
+    # subNodes: fasle
+    # disableOpenAPIValidation: false
+    # atomic: true
+    waitForJobs: true
+    wait: true
+    dependencyUpdate: true
+    timeout: 5m
+    install:
+      createNamespace: true
+      # includeCRDs: true
+    # upgrade:
+    #   force: false
+    #   resetValues: true
+    #   reuseValues: false
+    #   maxHistory: 10
+    #   cleanupOnFail: true
+    # uninstall:
+    #   keepHistory: false
+    #   description: ""
+  valuesTemplate: |
+    auth:
+      strategy: "anonymous"
+    deployment:
+      service_type: "NodePort"
+    external_services:
+      prometheus:
+        url: "http://prometheus-kube-prometheus-prometheus.monitoring:9090"
+      grafana:
+        enabled: true
+        in_cluster_url: 'http://prometheus-grafana.monitoring:80'
+      tracing:
+        enabled: true
+        in_cluster_url: 'http://jaeger-query.jaeger:16685'

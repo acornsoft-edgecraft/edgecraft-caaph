@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.0
-    created: "2023-09-01T14:35:42.676782+09:00"
+    created: "2023-09-01T17:45:47.821678+09:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -18,7 +18,7 @@ entries:
       version: 4.23.0
     description: A Helm chart for Argo CD, a declarative, GitOps continuous delivery
       tool for Kubernetes.
-    digest: 90248d05442c578416d6e7d9c180bb5707fb097054ffaddc31741a0d5f30ed5b
+    digest: dda5c33acbd520af93ba06d2743e2b9e207b7d8defbc184e914c598aa29931a2
     home: https://github.com/argoproj/argo-helm
     icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
     keywords:
@@ -36,6 +36,21 @@ entries:
     urls:
     - argo-cd-5.43.4.tgz
     version: 5.43.4
+  base:
+  - apiVersion: v1
+    appVersion: 1.18.2
+    created: "2023-09-01T17:45:47.823441+09:00"
+    description: Helm chart for deploying Istio cluster resources and CRDs
+    digest: f831322f3f8559e2f383edfb0012b0906cebefb9e48e984b6666a9e6a12a8256
+    icon: https://istio.io/latest/favicons/android-192x192.png
+    keywords:
+    - istio
+    name: base
+    sources:
+    - https://github.com/istio/istio
+    urls:
+    - base-1.18.2.tgz
+    version: 1.18.2
   cert-manager:
   - annotations:
       artifacthub.io/prerelease: "false"
@@ -44,9 +59,9 @@ entries:
         url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
     apiVersion: v1
     appVersion: v1.12.0
-    created: "2023-09-01T14:35:42.680694+09:00"
+    created: "2023-09-01T17:45:47.829011+09:00"
     description: A Helm chart for cert-manager
-    digest: ec33b79f10af9d0782ae4a2b0c9f52cfa4041098a178a93dda2df4e746543977
+    digest: 64c4621b66b22017f0ab108efb1221db1964c14275424a453738c1d874727642
     home: https://github.com/cert-manager/cert-manager
     icon: https://raw.githubusercontent.com/cert-manager/cert-manager/d53c0b9270f8cd90d908460d69502694e1838f5f/logo/logo-small.png
     keywords:
@@ -65,12 +80,50 @@ entries:
     urls:
     - cert-manager-v1.12.0.tgz
     version: v1.12.0
+  consul:
+  - annotations:
+      artifacthub.io/images: |
+        - name: consul
+          image: hashicorp/consul:1.16.0
+        - name: consul-k8s-control-plane
+          image: hashicorp/consul-k8s-control-plane:1.2.0
+        - name: consul-dataplane
+          image: hashicorp/consul-dataplane:1.2.0
+        - name: envoy
+          image: envoyproxy/envoy:v1.25.1
+      artifacthub.io/license: MPL-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://www.consul.io/docs/k8s
+        - name: hashicorp/consul
+          url: https://github.com/hashicorp/consul
+        - name: hashicorp/consul-k8s
+          url: https://github.com/hashicorp/consul-k8s
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/signKey: |
+        fingerprint: C874011F0AB405110D02105534365D9472D7468F
+        url: https://keybase.io/hashicorp/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-09-01T17:45:47.839608+09:00"
+    description: Official HashiCorp Consul Chart
+    digest: 55832e7164caf813bebae51e92a4bd273249c8d9f6302466e5eaed76fa623642
+    home: https://www.consul.io
+    icon: https://raw.githubusercontent.com/hashicorp/consul-k8s/main/assets/icon.png
+    kubeVersion: '>=1.22.0-0'
+    name: consul
+    sources:
+    - https://github.com/hashicorp/consul
+    - https://github.com/hashicorp/consul-k8s
+    urls:
+    - consul-1.2.0.tgz
+    version: 1.2.0
   csi-driver-nfs:
   - apiVersion: v1
     appVersion: v4.2.0
-    created: "2023-09-01T14:35:42.681641+09:00"
+    created: "2023-09-01T17:45:47.840499+09:00"
     description: CSI NFS Driver for Kubernetes
-    digest: 3d71bd2fd83d9d26e145b66f1888ca4ac3f22ce4405e0f10c03bef55dcce3caf
+    digest: b86f998b72d3a3003f5b5e64bc4d5ed20faba2c276b1cc2860dcc2dbb79de954
     name: csi-driver-nfs
     urls:
     - csi-driver-nfs-v4.2.0.tgz
@@ -78,9 +131,9 @@ entries:
   elasticsearch:
   - apiVersion: v1
     appVersion: 7.10.2
-    created: "2023-09-01T14:35:42.683901+09:00"
+    created: "2023-09-01T17:45:47.842421+09:00"
     description: Official Elastic helm chart for Elasticsearch
-    digest: a81695d95af2cb23289b80f4fec02f0801dc85c2264d767576e39a2a37e8f54a
+    digest: 4d3213e358b94d042283d379d2b44c7535011a6067c0aee812f0b452b73c14ff
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/elasticsearch.png
     maintainers:
@@ -99,10 +152,10 @@ entries:
           description: "Set fluent-bit binary as command"
     apiVersion: v1
     appVersion: 2.1.7
-    created: "2023-09-01T14:35:42.686442+09:00"
+    created: "2023-09-01T17:45:47.844052+09:00"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
-    digest: 36778f33911da9537dbcff0756df99ac8e0e7c56f8ac5b81806e296c44ccabb5
+    digest: f35a3502f005f10b79920fa5dc0f9df82b4023b679839dd0b603876de508e8d3
     home: https://fluentbit.io/
     icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/fluentd/fluentbit/icon/fluentbit-icon-color.svg
     keywords:
@@ -127,7 +180,7 @@ entries:
   gitlab:
   - apiVersion: v1
     appVersion: v16.1.1
-    created: "2023-09-01T14:35:42.720588+09:00"
+    created: "2023-09-01T17:45:47.887084+09:00"
     dependencies:
     - name: gitlab
       repository: ""
@@ -171,7 +224,7 @@ entries:
       repository: https://charts.gitlab.io/
       version: 0.4.0
     description: The One DevOps Platform
-    digest: af861b750c2cb226d416e5a081f13e9c9816376d30a269749e8208bd796a53da
+    digest: a42639ab4e0ee1d8b6f52dc67badae447349ecf88710de8e73ffbd38bf7862a6
     home: https://about.gitlab.com/
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
     keywords:
@@ -185,41 +238,13 @@ entries:
     urls:
     - gitlab-7.1.1.tgz
     version: 7.1.1
-  gitlab-ce:
-  - apiVersion: v1
-    appVersion: 9.4.1
-    created: "2023-09-01T14:35:42.72351+09:00"
-    dependencies:
-    - name: redis
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      version: 0.9.0
-    - name: postgresql
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      version: 0.8.1
-    description: GitLab Community Edition
-    digest: 61ca4d70d29cc591e2fb970297c72d722c6f3a15d5589abbb3d57869f0fed403
-    home: https://about.gitlab.com
-    keywords:
-    - git
-    - ci
-    - deploy
-    - issue tracker
-    - code review
-    - wiki
-    name: gitlab-ce
-    sources:
-    - https://hub.docker.com/r/gitlab/gitlab-ce/
-    - https://docs.gitlab.com/omnibus/
-    urls:
-    - gitlab-ce-0.2.3.tgz
-    version: 0.2.3
   harbor:
   - apiVersion: v1
     appVersion: 2.8.2
-    created: "2023-09-01T14:35:42.727685+09:00"
+    created: "2023-09-01T17:45:47.892093+09:00"
     description: An open source trusted cloud native registry that stores, signs,
       and scans content
-    digest: c44a4c4b791cbdbf3e7eac070c352def954bc8dd751653da904f85b4c3a1cfb8
+    digest: 57c803726260be43363833d16af4096a9bf4f6d9e5c7845c2c718cba01d2a105
     home: https://goharbor.io
     icon: https://raw.githubusercontent.com/goharbor/website/master/static/img/logos/harbor-icon-color.png
     keywords:
@@ -250,10 +275,10 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.8.1
-    created: "2023-09-01T14:35:42.731589+09:00"
+    created: "2023-09-01T17:45:47.897137+09:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
-    digest: 94d44802ecc96cc534b7751c5d78086946175e9164a20fd110956164ee254188
+    digest: 95e3693bee11cd10ae39388fbd2ceffc6d6d5f435f422db1fe6dc8d25fa55444
     home: https://github.com/kubernetes/ingress-nginx
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
     keywords:
@@ -270,6 +295,71 @@ entries:
     urls:
     - ingress-nginx-4.7.1.tgz
     version: 4.7.1
+  istiod:
+  - apiVersion: v1
+    appVersion: 1.18.2
+    created: "2023-09-01T17:45:47.899328+09:00"
+    description: Helm chart for istio control plane
+    digest: 40bca36f449fac6230e1a28fed7608b4aaef1868900e0a0c327260eeea1979a8
+    icon: https://istio.io/latest/favicons/android-192x192.png
+    keywords:
+    - istio
+    - istiod
+    - istio-discovery
+    name: istiod
+    sources:
+    - https://github.com/istio/istio
+    urls:
+    - istiod-1.18.2.tgz
+    version: 1.18.2
+  jaeger:
+  - apiVersion: v2
+    appVersion: 1.45.0
+    created: "2023-09-01T17:45:47.914941+09:00"
+    dependencies:
+    - condition: provisionDataStore.cassandra
+      name: cassandra
+      repository: https://charts.helm.sh/incubator
+      version: 0.15.3
+    - condition: provisionDataStore.elasticsearch
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: ^7.11.1
+    - condition: provisionDataStore.kafka
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: ^19.1.5
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.16.0
+    description: A Jaeger Helm chart for Kubernetes
+    digest: 04a34238e6eee3533bc74310adbb839e4612f1150d4cca78cd0339abab7fac0f
+    home: https://jaegertracing.io
+    icon: https://camo.githubusercontent.com/afa87494e0753b4b1f5719a2f35aa5263859dffb/687474703a2f2f6a61656765722e72656164746865646f63732e696f2f656e2f6c61746573742f696d616765732f6a61656765722d766563746f722e737667
+    keywords:
+    - jaeger
+    - opentracing
+    - tracing
+    - instrumentation
+    kubeVersion: '>= 1.21-0'
+    maintainers:
+    - email: david.vonthenen@dell.com
+      name: dvonthenen
+    - email: ankit.mehta@appian.com
+      name: mehta-ankit
+    - email: michael.lorant@fairfaxmedia.com.au
+      name: mikelorant
+    - email: naseem@transit.app
+      name: naseemkullah
+    - email: me@pavelnikolov.net
+      name: pavelnikolov
+    name: jaeger
+    sources:
+    - https://hub.docker.com/u/jaegertracing/
+    type: application
+    urls:
+    - jaeger-0.71.11.tgz
+    version: 0.71.11
   jupyterhub:
   - annotations:
       artifacthub.io/images: |
@@ -295,9 +385,9 @@ entries:
           name: traefik
     apiVersion: v2
     appVersion: 3.0.0
-    created: "2023-09-01T14:35:42.734989+09:00"
+    created: "2023-09-01T17:45:47.919976+09:00"
     description: Multi-user Jupyter installation
-    digest: 6559d2a4af0e2a7034cae5407070cbd09ac82446284c17bad1ab5784e5e19d2e
+    digest: 9af86144a6dd04041682f5855da620f619f3ce708b22f469529cc3555beaae29
     home: https://z2jh.jupyter.org
     icon: https://jupyterhub.github.io/helm-chart/images/hublogo.svg
     keywords:
@@ -319,7 +409,7 @@ entries:
   keycloak:
   - apiVersion: v2
     appVersion: 17.0.1-legacy
-    created: "2023-09-01T14:35:42.740195+09:00"
+    created: "2023-09-01T17:45:47.927268+09:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -327,7 +417,7 @@ entries:
       version: 10.16.2
     description: Open Source Identity and Access Management For Modern Applications
       and Services
-    digest: 4d83ec4452267d555713db35de4515a1ffbe83b25002ee3bf120ebce63a9c0d6
+    digest: 30728f685959ea106aded729d0b335f8007442f121da90e76df5a48500d2ca95
     home: https://www.keycloak.org/
     icon: https://www.keycloak.org/resources/images/keycloak_icon_512px.svg
     keywords:
@@ -350,12 +440,36 @@ entries:
     urls:
     - keycloak-18.4.3.tgz
     version: 18.4.3
+  kiali-server:
+  - apiVersion: v2
+    appVersion: v1.72.0
+    created: "2023-09-01T17:45:47.928415+09:00"
+    description: Kiali is an open source project for service mesh observability, refer
+      to https://www.kiali.io for details.
+    digest: 7cc743fafbc3b11fc6ef636cdd015d4ef0a68fa95f497fea60f1e3358fb96453
+    home: https://github.com/kiali/kiali
+    icon: https://raw.githubusercontent.com/kiali/kiali.io/master/themes/kiali/static/img/kiali_logo_masthead.png
+    keywords:
+    - istio
+    - kiali
+    maintainers:
+    - email: kiali-users@googlegroups.com
+      name: Kiali
+      url: https://kiali.io
+    name: kiali-server
+    sources:
+    - https://github.com/kiali/kiali
+    - https://github.com/kiali/kiali-operator
+    - https://github.com/kiali/helm-charts
+    urls:
+    - kiali-server-1.72.0.tgz
+    version: 1.72.0
   kibana:
   - apiVersion: v1
     appVersion: 7.10.2
-    created: "2023-09-01T14:35:42.741042+09:00"
+    created: "2023-09-01T17:45:47.929537+09:00"
     description: Official Elastic helm chart for Kibana
-    digest: 01c517f19922b79c1eea79c173216c65b4008999e16ea4c323e0f46d0ac42744
+    digest: d6a66d1f990e3211c69d82af2949608526d03bc595829ccca03a1b50d7c85306
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/kibana.png
     maintainers:
@@ -367,12 +481,36 @@ entries:
     urls:
     - kibana-7.10.2.tgz
     version: 7.10.2
+  kong:
+  - apiVersion: v2
+    appVersion: "3.3"
+    created: "2023-09-01T17:45:47.939506+09:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.9.13
+    description: The Cloud-Native Ingress and API-management
+    digest: 2b9d9e61658ad25f1b0bee29d0c953d700aa4e3f1ceee7ff9425d8a7764508a6
+    home: https://konghq.com/
+    icon: https://s3.amazonaws.com/downloads.kong/universe/assets/icon-kong-inc-large.png
+    maintainers:
+    - email: harry@konghq.com
+      name: hbagdi
+    - email: traines@konghq.com
+      name: rainest
+    name: kong
+    sources:
+    - https://github.com/Kong/charts/tree/main/charts/kong
+    urls:
+    - kong-2.26.4.tgz
+    version: 2.26.4
   kore-board:
   - apiVersion: v2
     appVersion: v0.5.5
-    created: "2023-09-01T14:35:42.741585+09:00"
+    created: "2023-09-01T17:45:47.940291+09:00"
     description: Kubernetes multi-clusters dashboard
-    digest: 3d78f374ada9da4ac55743fb11ee8e52666048ec5ad8c2a22852e820c028ce23
+    digest: 256e8ea32b13623d58d19a5ad47afc616cf2578c07d684ae3703e5ee1143d046
     name: kore-board
     type: application
     urls:
@@ -381,10 +519,10 @@ entries:
   ks-installer:
   - apiVersion: v2
     appVersion: 3.2.1
-    created: "2023-09-01T14:35:42.742572+09:00"
+    created: "2023-09-01T17:45:47.94153+09:00"
     description: The helm chart of KubeSphere, supports installing KubeSphere on existing
       Kubernetes.
-    digest: 5e9a799d83735b026ce3fd59eadcbae059582a4500ef6f7c015a60282c760467
+    digest: cf759cd9115a06ff8ea469f1ef8cdd85ee7aad045ee55a81de50b35f1596b9cf
     icon: https://kubesphere.io/static/logo.16097928.svg
     keywords:
     - kubesphere
@@ -405,7 +543,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v0.66.0
-    created: "2023-09-01T14:35:42.765804+09:00"
+    created: "2023-09-01T17:45:47.965288+09:00"
     dependencies:
     - condition: crds.enabled
       name: crds
@@ -431,7 +569,7 @@ entries:
       and Prometheus rules combined with documentation and scripts to provide easy
       to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
       Prometheus Operator.
-    digest: 021cd24d399b66ea5e6f4fa9bf96d41009932a0a97833452cf465b4071e22aa5
+    digest: a8ede3fec8b910b2b6713d010c1b7e26eb8a94f6417994b24069fdb508930107
     home: https://github.com/prometheus-operator/kube-prometheus
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
     keywords:
@@ -465,14 +603,14 @@ entries:
   kubernetes-dashboard:
   - apiVersion: v2
     appVersion: v2.7.0
-    created: "2023-09-01T14:35:42.768428+09:00"
+    created: "2023-09-01T17:45:47.96708+09:00"
     dependencies:
     - condition: metrics-server.enabled
       name: metrics-server
       repository: https://kubernetes-sigs.github.io/metrics-server/
       version: 3.8.4
     description: General-purpose web UI for Kubernetes clusters
-    digest: 9f855731fc382f5f824c24e2dc93caaee7bc4d3cb21952d1f5f33d532498be51
+    digest: b721946d1e29913a67236806bc2f5cf6895b2fe20cd8b1ad83bc450162fbfc09
     home: https://github.com/kubernetes/dashboard
     icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg
     keywords:
@@ -491,9 +629,9 @@ entries:
   nexus-repository-manager:
   - apiVersion: v2
     appVersion: 3.58.1
-    created: "2023-09-01T14:35:42.770158+09:00"
+    created: "2023-09-01T17:45:47.968062+09:00"
     description: Sonatype Nexus Repository Manager - Universal Binary repository
-    digest: dd3f65ce2e2189468721e638145010293271f3abc4749e5f27f544e5d6118447
+    digest: fd627035ccb48823ac3ed686ae4c78791453a513e806aadd6c47cb1e15e4e090
     home: https://www.sonatype.com/nexus-repository-oss
     icon: https://sonatype.github.io/helm3-charts/NexusRepo_Vertical.svg
     keywords:
@@ -520,9 +658,9 @@ entries:
   spark-operator:
   - apiVersion: v2
     appVersion: v1beta2-1.3.8-3.1.1
-    created: "2023-09-01T14:35:42.772153+09:00"
+    created: "2023-09-01T17:45:47.97017+09:00"
     description: A Helm chart for Spark on Kubernetes operator
-    digest: 363f2455a0b9b2bd621c839e8402727f0df8decf9f123dfee1b2661ea7d65dda
+    digest: 2c38bd4be198f64e11c9c10708572181e9af8e56d4ddc4eb7626a6bc83d8b589
     home: https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
     keywords:
     - spark
@@ -536,9 +674,9 @@ entries:
   velero:
   - apiVersion: v2
     appVersion: 1.11.1
-    created: "2023-09-01T14:35:42.774285+09:00"
+    created: "2023-09-01T17:45:47.973803+09:00"
     description: A Helm chart for velero
-    digest: 61e9e25e9f0bf3c4534c8e8a6689e413bd462c9ce1d46755224f329cf6adc67e
+    digest: 2fbee927ba656acbfb03806ca813c5a53965c3c2e1503de829deaa41792be3c9
     home: https://github.com/vmware-tanzu/velero
     icon: https://cdn-images-1.medium.com/max/1600/1*-9mb3AKnKdcL_QD3CMnthQ.png
     kubeVersion: '>=1.16.0-0'
@@ -560,10 +698,10 @@ entries:
   zabbix:
   - apiVersion: v2
     appVersion: 6.0.20
-    created: "2023-09-01T14:35:42.776928+09:00"
+    created: "2023-09-01T17:45:47.975899+09:00"
     description: Zabbix is a mature and effortless enterprise-class open source monitoring
       solution for network monitoring and application monitoring of millions of metrics.
-    digest: 57990481a5cf597cfaf3e2afd2fa9d0d0095a76e9a98590c7f9db1005a1296c8
+    digest: b3f49524513de9002cc9e54f4a5dd0f56f5efe55994baa0c1980bc2f68ad2cce
     home: https://www.zabbix.com
     icon: https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png
     keywords:
@@ -585,4 +723,4 @@ entries:
     urls:
     - zabbix-4.0.2.tgz
     version: 4.0.2
-generated: "2023-09-01T14:35:42.663754+09:00"
+generated: "2023-09-01T17:45:47.807696+09:00"
