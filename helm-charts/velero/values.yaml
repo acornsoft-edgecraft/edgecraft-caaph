@@ -15,6 +15,9 @@ image:
   imagePullSecrets: []
   # - registrySecretName
 
+nameOverride: ""
+fullnameOverride: ""
+
 # Annotations to add to the Velero deployment's. Optional.
 #
 # If you are using reloader use the following annotation with your VELERO_SECRET_NAME
@@ -319,6 +322,11 @@ configuration:
   - name:
     # provider is the name for the volume snapshot provider.
     provider:
+    credential:
+      # name of the secret used by this volumeSnapshotLocation.
+      name:
+      # name of key that contains the secret data to be used.
+      key:
     # Additional provider-specific configuration. See link above
     # for details of required/optional fields for your provider.
     config: {}
