@@ -10,7 +10,7 @@ spec:
   chartName: elasticsearch
   version: 7.10.2
   namespace: efk
-  #releaseName: elasticsearch
+  releaseName: elasticsearch
   options:
     # disableHooks: true
     # skipCRDs: false
