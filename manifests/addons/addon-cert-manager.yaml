@@ -39,7 +39,7 @@ spec:
         aggregateClusterRoles: true
       leaderElection:
         namespace: "kube-system"
-    installCRDs: false
+    installCRDs: true
     replicaCount: 1
     image:
       repository: quay.io/jetstack/cert-manager-controller
