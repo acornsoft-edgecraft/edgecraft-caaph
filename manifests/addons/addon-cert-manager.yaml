@@ -10,7 +10,7 @@ spec:
   chartName: cert-manager
   version: v1.12.0
   namespace: cert-manager
-  #releaseName: cert-manager
+  releaseName: cert-manager
   options:
     disableHooks: true
     # skipCRDs: false
@@ -28,23 +28,9 @@ spec:
       # resetValues: true
     #   reuseValues: false
     #   maxHistory: 10
-    #   cleanupOnFail: true
+      cleanupOnFail: true
     # uninstall:
     #   keepHistory: false
     #   description: ""
   valuesTemplate: |
-    global:
-      rbac:
-        create: true
-        aggregateClusterRoles: true
-      leaderElection:
-        namespace: "kube-system"
     installCRDs: true
-    replicaCount: 1
-    image:
-      repository: quay.io/jetstack/cert-manager-controller
-      pullPolicy: IfNotPresent
-    namespace: ""
-    serviceAccount:
-      create: true
-      automountServiceAccountToken: true
