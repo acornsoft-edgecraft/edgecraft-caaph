@@ -28,7 +28,7 @@ spec:
       resetValues: true
     #   reuseValues: false
     #   maxHistory: 10
-    #   cleanupOnFail: true
+      cleanupOnFail: true
     # uninstall:
     #   keepHistory: false
     #   description: ""
@@ -37,6 +37,6 @@ spec:
       type: NodePort
     postgresql:
       global:
-        storageClass: nfs-cli
-      volumePermission:
+        storageClass: nfs-csi
+      volumePermissions:
         enabled: true

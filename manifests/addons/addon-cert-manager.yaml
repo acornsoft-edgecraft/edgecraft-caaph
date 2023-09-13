@@ -10,7 +10,7 @@ spec:
   chartName: cert-manager
   version: v1.12.0
   namespace: cert-manager
-  #releaseName: cert-manager
+  releaseName: cert-manager
   options:
     disableHooks: true
     # skipCRDs: false
@@ -28,7 +28,7 @@ spec:
       resetValues: true
     #   reuseValues: false
     #   maxHistory: 10
-    #   cleanupOnFail: true
+      cleanupOnFail: true
     # uninstall:
     #   keepHistory: false
     #   description: ""

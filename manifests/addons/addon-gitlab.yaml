@@ -35,22 +35,22 @@ spec:
   valuesTemplate: |
     global:
       edition: ce
-    hosts:
-      domain: edgecraft.acornsoft.io
-      gitlab:
-        name: gitlab.edgecraft.acornsoft.io
-        https: true
-      registry:
-        name: registry.edgecraft.acornsoft.io
-        https: true
-      minio:
-        name: minio.edgecraft.acornsoft.io
-        https: true
-    ingress:
-      configureCertmanager: false
-      class: nginx
-      tls:
-        enabled: true
+      hosts:
+        domain: edgecraft.acornsoft.io
+        gitlab:
+          name: gitlab.edgecraft.acornsoft.io
+          https: true
+        registry:
+          name: registry.edgecraft.acornsoft.io
+          https: true
+        minio:
+          name: minio.edgecraft.acornsoft.io
+          https: true
+      ingress:
+        configureCertmanager: false
+        class: nginx
+        tls:
+          enabled: true
     certmanager-issuer:
       email: ccambo@acornsoft.io
     certmanager:
