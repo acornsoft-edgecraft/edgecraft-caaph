@@ -22,10 +22,10 @@ spec:
     timeout: 5m
     install:
       createNamespace: true
-      includeCRDs: true
+      # includeCRDs: true
     upgrade:
       #   force: false
-      resetValues: true
+      # resetValues: true
     #   reuseValues: false
     #   maxHistory: 10
     #   cleanupOnFail: true
