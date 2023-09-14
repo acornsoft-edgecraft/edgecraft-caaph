@@ -10,15 +10,16 @@ spec:
   chartName: keycloak
   version: 18.4.3
   namespace: keycloak
-  releaseName: codecentric
+  # releaseName: keycloak
   options:
     disableHooks: true
     # skipCRDs: false
     # subNodes: fasle
     # disableOpenAPIValidation: false
-    atomic: true
+    # atomic: true
     waitForJobs: true
     wait: true
+    dependencyUpdate: true
     timeout: 5m
     install:
       createNamespace: true

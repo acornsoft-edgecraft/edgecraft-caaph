@@ -7,7 +7,7 @@ spec:
     matchLabels:
       kialiChart: enabled
   repoURL: https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
-  chartName: kiali
+  chartName: kiali-server
   version: 1.72.0
   namespace: istio-system
   releaseName: kiali-server
@@ -24,12 +24,12 @@ spec:
     install:
       createNamespace: true
       # includeCRDs: true
-    # upgrade:
+    upgrade:
     #   force: false
     #   resetValues: true
     #   reuseValues: false
     #   maxHistory: 10
-    #   cleanupOnFail: true
+      cleanupOnFail: true
     # uninstall:
     #   keepHistory: false
     #   description: ""

@@ -24,12 +24,12 @@ spec:
     install:
       createNamespace: true
       # includeCRDs: true
-    # upgrade:
+    upgrade:
     #   force: false
     #   resetValues: true
     #   reuseValues: false
     #   maxHistory: 10
-    #   cleanupOnFail: true
+      cleanupOnFail: true
     # uninstall:
     #   keepHistory: false
     #   description: ""
@@ -37,4 +37,4 @@ spec:
     proxy:
       type: NodePort
     ingressController:
-      installCRDs: fasle
+      installCRDs: false
