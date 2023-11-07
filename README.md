@@ -9,7 +9,7 @@
 ### Helm Repo 등록
 
 ```bash
-$ helm repo add edgecraft https://acornsoft-edgecraft.github.io/edgecraft-caaph/
+$ helm repo add edgecraft https://acornsoft-edgecraft.github.io/edgecraft-caaph/helm-charts
 $ helm repo update
 ```
 
